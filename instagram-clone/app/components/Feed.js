@@ -1,10 +1,9 @@
 'use client';
 
-import { useState, useEffect, useRef } from 'react';
+import { useState, useEffect } from 'react'; // Removed useRef
 import { usePostsStore } from '../../lib/store/postsStore';
 import Post from './Post';
 import styles from './Feed.module.css';
-import Image from 'next/image'
 
 const Feed = ({ isLoading = true }) => {
   const posts = usePostsStore(state => state.posts);
@@ -14,6 +13,7 @@ const Feed = ({ isLoading = true }) => {
   const [selectedPost, setSelectedPost] = useState(null);
   const [loading, setLoading] = useState(isLoading);
   const [heartAnimation, setHeartAnimation] = useState(null);
+
   // Initialize loading state and simulate posts fetching
   useEffect(() => {
     const timer = setTimeout(() => {
@@ -31,7 +31,7 @@ const Feed = ({ isLoading = true }) => {
     }
 
     // Handle the popstate event (when back button is pressed)
-    const handlePopState = (event) => {
+    const handlePopState = () => { // Removed unused 'event' parameter
       if (selectedPost) {
         setSelectedPost(null);
       }

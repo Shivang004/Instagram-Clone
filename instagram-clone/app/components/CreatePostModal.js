@@ -1,6 +1,7 @@
 'use client';
 
 import { useState, useRef, useEffect } from 'react';
+import Image from 'next/image';
 import { usePostsStore } from '../../lib/store/postsStore';
 import ReactCrop from 'react-image-crop';
 import 'react-image-crop/dist/ReactCrop.css';
@@ -36,7 +37,6 @@ const CreatePostModal = ({ onClose }) => {
   // Track navigation history for browser back button support
   const [navigationHistory, setNavigationHistory] = useState(['upload']);
   const isHandlingPopState = useRef(false);
-
   // Initialize and cleanup camera stream
   useEffect(() => {
     return () => {
@@ -465,8 +465,8 @@ const CreatePostModal = ({ onClose }) => {
 
     // If image reference is available, use it to calculate appropriate dimensions
     if (imgRef.current) {
-      const imageWidth = imgRef.current.width;
-      const imageHeight = imgRef.current.height;
+      const currentWidth = imgRef.current.width;
+      const currentHeight = imgRef.current.height;
 
       // Reference the current crop to maintain position
       const currentCrop = { ...crop };
@@ -559,6 +559,9 @@ const CreatePostModal = ({ onClose }) => {
       });
     }
   };
+
+
+
   const handleCancelCrop = () => {
     // Manually trigger browser back functionality
     window.history.back();
@@ -745,12 +748,13 @@ const CreatePostModal = ({ onClose }) => {
                 circularCrop={false}
                 keepSelection={true}
               >
-                <img
+                <Image
                   ref={imgRef}
                   src={imageUrl}
                   alt="Crop preview"
                   style={{ maxWidth: '100%', maxHeight: '60vh' }}
                   onLoad={() => setError('')}
+
                 />
               </ReactCrop>
             </div>
@@ -788,11 +792,12 @@ const CreatePostModal = ({ onClose }) => {
       return (
         <div className={styles.previewContent}>
           <div className={styles.imagePreview}>
-            <img
+            <Image
               src={croppedImageUrl || imageUrl}
               alt="Preview"
               className={styles.previewImage}
               style={{ maxWidth: '100%', maxHeight: '70vh', objectFit: 'contain' }}
+
             />
           </div>
           <div className={styles.previewControls}>
@@ -817,7 +822,7 @@ const CreatePostModal = ({ onClose }) => {
       return (
         <div className={styles.captionContent}>
           <div className={styles.imagePreview}>
-            <img
+            <Image
               src={croppedImageUrl || imageUrl}
               alt="Preview"
               style={{ maxWidth: '100%', maxHeight: '50vh', objectFit: 'contain' }}
