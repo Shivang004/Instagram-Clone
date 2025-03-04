@@ -1,0 +1,689 @@
+.post {
+  /* CSS variables for theming */
+  --primary-bg: #ffffff;
+  --border-color: #dbdbdb;
+  --border-color-rgb: 219, 219, 219;
+  --text-primary: #262626;
+  --text-secondary: #8e8e8e;
+  --accent-color: #0095f6;
+  --like-color: #ed4956;
+  --hover-bg: rgba(0, 0, 0, 0.05);
+  
+  background-color: var(--primary-bg);
+  border: 1px solid var(--border-color);
+  border-radius: 3px;
+  margin-bottom: 24px;
+  overflow: hidden;
+  max-width: 100%;
+}
+
+.modalPost {
+  border: none;
+  margin-bottom: 0;
+}
+
+/* Header styles */
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 14px 16px;
+}
+
+.userInfo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.avatar {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background-color: #f0f0f0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  color: #666;
+  flex-shrink: 0;
+}
+
+.username {
+  font-weight: 600;
+  font-size: 14px;
+}
+
+/* More options menu */
+.moreContainer {
+  position: relative;
+}
+
+.moreBtn {
+  color: var(--text-primary);
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.moreOptions {
+  position: absolute;
+  top: 30px;
+  right: 0;
+  background-color: var(--primary-bg);
+  border: 1px solid var(--border-color);
+  border-radius: 4px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  z-index: 10;
+  min-width: 150px;
+  overflow: hidden;
+}
+
+.deleteBtn {
+  width: 100%;
+  text-align: left;
+  padding: 12px 16px;
+  background: none;
+  border: none;
+  color: var(--like-color);
+  font-weight: 500;
+  font-size: 14px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.deleteBtn:hover {
+  background-color: var(--hover-bg);
+}
+
+/* Image container styles */
+.imageContainer {
+  position: relative;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #fafafa;
+}
+
+.image {
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+  max-height: 600px;
+}
+
+/* Action buttons styles */
+.actions {
+  display: flex;
+  padding: 8px 16px;
+  gap: 16px;
+  align-items: center;
+  position: relative;
+}
+
+.actionBtn {
+  padding: 8px 4px;
+  color: var(--text-primary);
+  transition: color 0.2s, transform 0.2s;
+  background: none;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.actionBtn:hover {
+  color: var(--text-secondary);
+  transform: scale(1.1);
+}
+
+.actionBtn.liked {
+  color: var(--like-color);
+}
+
+.actionBtn.liked:hover {
+  color: var(--like-color);
+}
+
+/* Share options - Fixed positioning */
+.shareOptions {
+  position: fixed;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  background-color: var(--primary-bg);
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.15);
+  z-index: 100;
+  width: 300px;
+  padding: 16px 0;
+  max-height: 90vh;
+  overflow-y: auto;
+}
+
+.shareOptions h3 {
+  font-size: 16px;
+  font-weight: 600;
+  margin: 0;
+  padding: 0 16px 16px;
+  text-align: center;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.shareOptions ul {
+  list-style: none;
+  padding: 8px 0;
+  margin: 0;
+}
+
+.shareOption {
+  padding: 4px 16px;
+}
+
+.shareButton {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  padding: 12px 8px;
+  border: none;
+  background: none;
+  cursor: pointer;
+  font-size: 14px;
+  text-align: left;
+  transition: background-color 0.2s;
+  border-radius: 4px;
+}
+
+.shareButton:hover {
+  background-color: var(--hover-bg);
+}
+
+.shareIcon {
+  margin-right: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+}
+
+/* Social media icons */
+.shareCopyLink {
+  background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg>');
+  width: 24px;
+  height: 24px;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.shareInstagram {
+  background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>');
+  width: 24px;
+  height: 24px;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.shareFacebook {
+  background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg>');
+  width: 24px;
+  height: 24px;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.shareTwitter {
+  background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 4s-.7 2.1-2 3.4c1.6 10-9.4 17.3-18 11.6 2.2.1 4.4-.6 6-2C3 15.5.5 9.6 3 5c2.2 2.6 5.6 4.1 9 4-.9-4.2 4-6.6 7-3.8 1.1 0 3-1.2 3-1.2z"></path></svg>');
+  width: 24px;
+  height: 24px;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.shareWhatsapp {
+  background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M16.5 14.5c-.4-.2-2-.9-2.3-1-.3-.1-.5-.1-.7.2-.2.3-.8 1-1 1.2-.2.2-.4.2-.7.1-.3-.2-1.3-.5-2.5-1.5-1-1-1.5-1.8-1.7-2.1-.2-.3 0-.5.1-.7.1-.1.3-.4.5-.5.1-.2.2-.3.3-.5.1-.2.1-.4 0-.5-.1-.2-.7-1.6-.9-2.2s-.5-.5-.7-.5h-1.4c-.3 0-.5.1-.8.4s-1.1 1.1-1.1 2.6c0 1.5 1.1 2.9 1.3 3.2.2.2 2.1 3.2 5.2 4.5.7.3 1.3.5 1.8.6.8.2 1.4.2 1.9.1.6-.1 1.8-.7 2.1-1.5.3-.8.3-1.4.2-1.5-.1-.1-.3-.2-.6-.4z"></path><path d="M20.1 4.6c-4.9-4.8-12.7-4.8-17.5 0-4.8 4.8-4.8 12.7 0 17.5 4.8 4.8 12.7 4.8 17.5 0 4.8-4.8 4.8-12.7 0-17.5zm-1.3 16.2c-4.1 4.1-10.7 4.1-14.8 0-4.1-4.1-4.1-10.7 0-14.8 4.1-4.1 10.7-4.1 14.8 0s4.1 10.7 0 14.8z"></path></svg>');
+  width: 24px;
+  height: 24px;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+/* Post metadata styles */
+.likes {
+  padding: 0 16px 8px;
+  font-weight: 600;
+  font-size: 14px;
+}
+
+.caption {
+  padding: 0 16px 8px;
+  font-size: 14px;
+  line-height: 1.4;
+  word-break: break-word;
+}
+
+.timestamp {
+  padding: 0 16px 16px;
+  font-size: 12px;
+  color: var(--text-secondary);
+}
+
+/* Comments section styles - Fixed scrollable area */
+.commentsSection {
+  border-top: 1px solid var(--border-color);
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.commentsList {
+  max-height: 240px;
+  overflow-y: auto;
+  padding: 12px 16px;
+  scrollbar-width: thin;
+  scrollbar-color: var(--text-secondary) transparent;
+}
+
+.commentsList::-webkit-scrollbar {
+  width: 4px;
+}
+
+.commentsList::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.commentsList::-webkit-scrollbar-thumb {
+  background-color: var(--text-secondary);
+  border-radius: 4px;
+}
+
+/* Comment container - houses the comment and its replies */
+.commentContainer {
+  margin-bottom: 16px;
+}
+
+.commentContainer:last-child {
+  margin-bottom: 0;
+}
+
+.comment {
+  margin-bottom: 4px;
+  font-size: 14px;
+  line-height: 1.4;
+}
+
+.commentMain {
+  display: flex;
+  word-break: break-word;
+}
+
+.commentUsername {
+  font-weight: 600;
+  margin-right: 4px;
+  flex-shrink: 0;
+}
+
+.commentText {
+  word-break: break-word;
+}
+
+.commentActions {
+  display: flex;
+  align-items: center;
+  margin-top: 4px;
+  margin-left: 4px;
+  font-size: 12px;
+}
+
+.commentTime {
+  color: var(--text-secondary);
+  margin-right: 12px;
+}
+
+.replyButton {
+  background: none;
+  border: none;
+  color: var(--text-secondary);
+  font-size: 12px;
+  font-weight: 500;
+  padding: 0;
+  cursor: pointer;
+}
+
+.replyButton:hover {
+  color: var(--text-primary);
+}
+
+/* Replies container */
+.repliesContainer {
+  margin-left: 16px;
+  margin-top: 8px;
+  border-left: 1px solid var(--border-color);
+  padding-left: 12px;
+}
+
+.reply {
+  margin-bottom: 8px;
+  font-size: 13px;
+}
+
+.reply:last-child {
+  margin-bottom: 0;
+}
+
+.replyMain {
+  display: flex;
+  word-break: break-word;
+}
+
+.replyTime {
+  font-size: 11px;
+  color: var(--text-secondary);
+  margin-top: 2px;
+  margin-left: 4px;
+}
+
+/* Reply form */
+.replyForm {
+  display: flex;
+  margin-top: 8px;
+  margin-bottom: 12px;
+  margin-left: 16px;
+  padding-top: 8px;
+  border-top: 1px solid rgba(var(--border-color-rgb), 0.3);
+}
+
+.replyInput {
+  flex: 1;
+  border: none;
+  background: none;
+  padding: 6px 0;
+  font-size: 13px;
+  outline: none;
+}
+
+.replySubmit {
+  background: none;
+  border: none;
+  color: var(--accent-color);
+  font-weight: 600;
+  font-size: 13px;
+  padding: 6px;
+  cursor: pointer;
+}
+
+.replySubmit:disabled {
+  opacity: 0.3;
+  cursor: default;
+}
+
+.noComments {
+  color: var(--text-secondary);
+  font-size: 14px;
+  text-align: center;
+  padding: 20px 0;
+}
+
+/* Comment form - always visible at bottom */
+.commentForm {
+  display: flex;
+  border-top: 1px solid var(--border-color);
+  padding: 12px 16px;
+  background-color: var(--primary-bg);
+  align-items: center;
+}
+
+.commentInput {
+  flex: 1;
+  border: none;
+  background: none;
+  padding: 8px 0;
+  font-size: 14px;
+  outline: none;
+}
+
+.commentSubmit {
+  background: none;
+  border: none;
+  color: var(--accent-color);
+  font-weight: 600;
+  font-size: 14px;
+  padding: 8px;
+  cursor: pointer;
+  flex-shrink: 0;
+}
+
+.commentSubmit:disabled {
+  opacity: 0.3;
+  cursor: default;
+}
+
+/* Emoji picker styles - improved */
+.emojiPickerContainer {
+  position: relative;
+  margin-right: 12px;
+}
+
+.emojiButton {
+  background: none;
+  border: none;
+  padding: 4px;
+  color: var(--text-secondary);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: color 0.2s;
+}
+
+.emojiButton:hover {
+  color: var(--text-primary);
+}
+
+.emojiList {
+  position: absolute;
+  bottom: 40px;
+  left: 0;
+  background-color: var(--primary-bg);
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.15);
+  padding: 8px;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 6px;
+  z-index: 10;
+}
+
+.emojiItem {
+  width: 36px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
+  background: none;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.emojiItem:hover {
+  background-color: var(--hover-bg);
+}
+
+/* Grid view styles */
+.gridPost {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  cursor: pointer;
+  aspect-ratio: 1 / 1;
+}
+
+.gridImageContainer {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+.gridImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.gridPost:hover .gridImage {
+  transform: scale(1.05);
+}
+
+.gridOverlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.4);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.gridPost:hover .gridOverlay {
+  opacity: 1;
+}
+
+.gridStats {
+  display: flex;
+  gap: 20px;
+}
+
+.gridStat {
+  display: flex;
+  align-items: center;
+  color: white;
+  font-weight: bold;
+  gap: 6px;
+}
+.closeModal {
+  position: absolute;
+  top: 15px;
+  right: 12px;
+  border: none;
+  color: black;
+  font-size: 24px;
+  cursor: pointer;
+  z-index: 10;
+  padding: 8px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Include share button in grid view */
+.gridStat svg {
+  filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.3));
+}
+.image {
+  cursor: pointer;
+}
+
+.heartAnimation {
+  font-size: 4rem;
+  color: white;
+  text-shadow: 0 0 10px rgba(0,0,0,0.5);
+  animation: heartLike 1s ease-out;
+  pointer-events: none;
+  z-index: 10;
+}
+
+@keyframes heartLike {
+  0% {
+    transform: translate(-50%, -50%) scale(0);
+    opacity: 0;
+  }
+  50% {
+    transform: translate(-50%, -50%) scale(1.5);
+    opacity: 1;
+  }
+  100% {
+    transform: translate(-50%, -50%) scale(2);
+    opacity: 0;
+  }
+}
+/* Responsive styles */
+@media (max-width: 768px) {
+  .post {
+    border-left: none;
+    border-right: none;
+    border-radius: 0;
+    margin-bottom: 1px;
+  }
+
+  .image {
+    max-height: none;
+  }
+  
+  .commentsList {
+    max-height: 180px;
+  }
+  
+  .repliesContainer {
+    margin-left: 12px;
+    padding-left: 8px;
+  }
+  
+  .emojiList {
+    grid-template-columns: repeat(4, 1fr);
+    left: -5px;
+  }
+  
+  .emojiItem {
+    width: 32px;
+    height: 32px;
+  }
+  
+  
+}
+
+@media (max-width: 480px) {
+  .header, .actions, .commentForm {
+    padding: 10px 12px;
+  }
+  
+  .likes, .caption {
+    padding: 0 12px 6px;
+  }
+  
+  .timestamp {
+    padding: 0 12px 12px;
+  }
+  
+  .commentsList {
+    padding: 8px 12px;
+    max-height: 150px;
+  }
+  
+  .emojiList {
+    grid-template-columns: repeat(4, 1fr);
+  }
+  
+  .emojiItem {
+    width: 28px;
+    height: 28px;
+    font-size: 16px;
+  }
+}

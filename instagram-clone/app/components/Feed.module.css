@@ -1,0 +1,304 @@
+.feedContainer {
+    display: flex;
+    flex-direction: column;
+    max-width: 935px;
+    width: 100%;
+    margin: 0 auto;
+  }
+  
+  .feed {
+    margin-top: 20px;
+    margin-bottom: 30px;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+  }
+  
+  .feedGrid {
+    margin-top: 20px;
+    margin-bottom: 30px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2px;
+    width: 100%;
+  }
+  
+  .gridItem {
+    position: relative;
+    aspect-ratio: 1/1;
+    overflow: hidden;
+    cursor: pointer;
+  }
+  
+  .gridItem:hover {
+    opacity: 0.9;
+  }
+  
+  .viewToggle {
+    display: flex;
+    justify-content: center;
+    margin-top: 80px;
+    border-bottom: 1px solid var(--border-color);
+    margin-bottom: 0;
+  }
+  
+  .viewToggleBtn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 14px 16px;
+    background: none;
+    border: none;
+    color: var(--text-secondary);
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    position: relative;
+  }
+  
+  .viewToggleBtn.active {
+    color: var(--text-primary);
+  }
+  
+  .viewToggleBtn.active::after {
+    content: '';
+    position: absolute;
+    bottom: -1px;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background-color: var(--text-primary);
+  }
+  
+  /* Modal styles */
+  .modalOverlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.75);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    overflow-y: auto;
+  }
+  
+  .modal {
+    background-color: white;
+    border-radius: 4px;
+    overflow: hidden;
+    max-width: 935px;
+    width: 90%;
+    max-height: 90vh;
+    position: relative;
+  }
+  
+  .closeModal {
+    position: absolute;
+    top: 16px;
+    right: 16px;
+    background: none;
+    border: none;
+    color: white;
+    cursor: pointer;
+    z-index: 1100;
+    padding: 8px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  /* Add these styles to your Feed.module.css */
+
+.splitModal {
+    display: flex;
+    background-color: white;
+    width: 90%;
+    max-width: 1200px;
+    height: 90vh;
+    max-height: 800px;
+    position: relative;
+    border-radius: 4px;
+    overflow: hidden;
+  }
+  
+  .modalImageContainer {
+    flex: 1;
+    background-color: #000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 0;
+    max-width: 60%;
+  }
+  
+  .modalImage {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+  }
+  
+  .modalContent {
+    flex: 1;
+    min-width: 0;
+    max-width: 40%;
+    overflow-y: auto;
+    border-left: 1px solid #efefef;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .closeModal {
+    position: absolute;
+    top: 40px;
+    right: 12px;
+    background: none;
+    border: none;
+    color: white;
+    font-size: 24px;
+    cursor: pointer;
+    z-index: 10;
+    padding: 8px;
+    border-radius: 50%;
+    background-color: rgba(0, 0, 0, 0.4);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  /* Add these styles to your Post.module.css */
+  
+  .modalPost {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    padding: 0;
+    border: none;
+    box-shadow: none;
+    margin: 0;
+  }
+  
+  .modalPost .commentsSection {
+    flex: 1;
+    overflow-y: auto;
+  }
+  
+  .modalPost .header {
+    padding: 16px;
+    border-bottom: 1px solid #efefef;
+  }
+  
+  .modalPost .commentsList {
+    max-height: calc(100vh - 300px);
+    overflow-y: auto;
+  }
+  
+ /* Add these styles to your Feed.module.css file */
+
+.loadingContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 300px;
+  width: 100%;
+}
+
+.loadingSpinner {
+  width: 40px;
+  height: 40px;
+  border: 3px solid rgba(0, 0, 0, 0.1);
+  border-radius: 50%;
+  border-top-color: #3498db;
+  animation: spin 1s ease-in-out infinite;
+  margin-bottom: 16px;
+}
+
+.loadingText {
+  color: #777;
+  font-size: 16px;
+}
+.modalImage {
+  cursor: pointer;
+}
+
+.heartAnimation {
+  font-size: 4rem;
+  color: white;
+  text-shadow: 0 0 10px rgba(0,0,0,0.5);
+  animation: heartLike 1s ease-out;
+  pointer-events: none;
+  z-index: 10;
+}
+
+@keyframes heartLike {
+  0% {
+    transform: translate(-50%, -50%) scale(0);
+    opacity: 0;
+  }
+  50% {
+    transform: translate(-50%, -50%) scale(1.5);
+    opacity: 1;
+  }
+  100% {
+    transform: translate(-50%, -50%) scale(2);
+    opacity: 0;
+  }
+}
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+  @media (max-width: 768px) {
+    .feed {
+      margin-top: 0;
+      gap: 0;
+    }
+    
+    .feedGrid {
+      margin-top: 0;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1px;
+    }
+    
+    .viewToggle {
+      margin-top: 70px;
+    }
+    
+    .modal {
+      width: 100%;
+      max-width: none;
+      height: 100%;
+      max-height: 100vh;
+      border-radius: 0;
+    }
+    .splitModal {
+        flex-direction: column;
+        width: 100%;
+        height: 100vh;
+        max-height: 100vh;
+        max-width: 100%;
+      }
+      
+      .modalImageContainer {
+        max-width: 100%;
+        height: 50%;
+      }
+      
+      .modalContent {
+        max-width: 100%;
+        height: 50%;
+        border-left: none;
+        border-top: 1px solid #efefef;
+      }
+  }
+  
+  @media (max-width: 480px) {
+    .feedGrid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }

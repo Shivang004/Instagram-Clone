@@ -1,0 +1,101 @@
+.header {
+  --primary-bg: white;
+  --border-color: #dbdbdb;
+  --text-primary: #262626;
+  --text-secondary: #8e8e8e;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 60px;
+  background-color: white;
+  border-bottom: 1px solid #dbdbdb;
+  z-index: 100;
+}
+
+.container {
+  max-width: 975px;
+  height: 100%;
+  margin: 0 auto;
+  padding: 0 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+
+.navActions {
+  display: flex;
+  align-items: center;
+  gap: 22px;
+}
+
+.createButton {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  color: #262626;
+  font-weight: 500;
+  font-size: 14px;
+  transition: opacity 0.2s;
+}
+
+.createButton:hover {
+  opacity: 0.7;
+}
+
+.icon {
+  width: 24px;
+  height: 24px;
+}
+
+.navIcon {
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  transition: opacity 0.2s;
+}
+.logo svg{
+  padding-top: 10px;
+}
+.navIcon:hover {
+  opacity: 0.7;
+}
+
+.profileIcon {
+  cursor: pointer;
+}
+
+.avatarContainer {
+  flex-shrink: 0;
+  margin-right: 30px;
+  width: 30px;
+  height: 30px;
+}
+
+.avatar {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 1px solid #dbdbdb;
+}
+
+@media (max-width: 768px) {
+  .container {
+    padding: 0 15px;
+  }
+  
+  .logo h1 {
+    font-size: 24px;
+  }
+  
+  .navActions {
+    gap: 16px;
+  }
+}
