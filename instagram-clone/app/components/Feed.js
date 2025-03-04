@@ -4,6 +4,7 @@ import { useState, useEffect } from 'react'; // Removed useRef
 import { usePostsStore } from '../../lib/store/postsStore';
 import Post from './Post';
 import styles from './Feed.module.css';
+import Image from 'next/image'
 
 const Feed = ({ isLoading = true }) => {
   const posts = usePostsStore(state => state.posts);

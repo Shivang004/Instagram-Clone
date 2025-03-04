@@ -37,6 +37,7 @@ const CreatePostModal = ({ onClose }) => {
   // Track navigation history for browser back button support
   const [navigationHistory, setNavigationHistory] = useState(['upload']);
   const isHandlingPopState = useRef(false);
+
   // Initialize and cleanup camera stream
   useEffect(() => {
     return () => {
@@ -53,7 +54,7 @@ const CreatePostModal = ({ onClose }) => {
     window.history.pushState({ modalStep: 'upload' }, '');
 
     // Listen for popstate events (when user clicks browser back button)
-    const handlePopState = (event) => {
+    const handlePopState = () => {
       if (isHandlingPopState.current) return;
       isHandlingPopState.current = true;
 
@@ -232,7 +233,6 @@ const CreatePostModal = ({ onClose }) => {
       setError('Please enter a valid URL');
     }
   };
-
   const startCameraCapture = async () => {
     try {
       setCameraActive(true);
@@ -454,7 +454,6 @@ const CreatePostModal = ({ onClose }) => {
     }
     // Error is already set in getCroppedImg if there's an issue
   };
-
   const handleAspectRatioChange = (value) => {
     setAspectRatio(value);
 
@@ -465,9 +464,6 @@ const CreatePostModal = ({ onClose }) => {
 
     // If image reference is available, use it to calculate appropriate dimensions
     if (imgRef.current) {
-      const currentWidth = imgRef.current.width;
-      const currentHeight = imgRef.current.height;
-
       // Reference the current crop to maintain position
       const currentCrop = { ...crop };
 
@@ -559,7 +555,6 @@ const CreatePostModal = ({ onClose }) => {
       });
     }
   };
-
 
 
   const handleCancelCrop = () => {
