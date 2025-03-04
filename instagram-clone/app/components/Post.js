@@ -3,6 +3,7 @@
 import { useState, useEffect } from 'react';
 import { usePostsStore } from '../../lib/store/postsStore';
 import styles from './Post.module.css';
+import Image from 'next/image'
 
 const Post = ({ post: initialPost, isGridView = true, isModalView = false, onPostClick, onClose }) => {
   // Subscribe to the store for real-time updates
@@ -342,7 +343,7 @@ const Post = ({ post: initialPost, isGridView = true, isModalView = false, onPos
     return (
       <div className={styles.gridPost} onClick={handleGridItemClick}>
         <div className={styles.gridImageContainer}>
-          <img
+          <Image
             src={post.imageUrl}
             alt={post.caption || "Instagram post"}
             className={styles.gridImage}
@@ -401,7 +402,7 @@ const Post = ({ post: initialPost, isGridView = true, isModalView = false, onPos
             className={styles.imageContainer} 
             style={{ position: 'relative' }}
           >
-            <img
+            <Image
               src={post.imageUrl}
               alt={post.caption || "Instagram post"}
               className={styles.image}

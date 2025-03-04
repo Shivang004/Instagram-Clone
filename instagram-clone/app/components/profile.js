@@ -3,6 +3,7 @@
 import { useState, useEffect } from 'react';
 import styles from './profile.module.css';
 import { usePostsStore } from '../../lib/store/postsStore'; // Update this path
+import Image from 'next/image'
 
 const Profile = ({ userData }) => {
   // Get posts from the store to calculate post count
@@ -30,7 +31,7 @@ const Profile = ({ userData }) => {
     <section className={styles.profileContainer}>
       <div className={styles.profileHeader}>
         <div className={styles.avatarContainer}>
-          <img
+          <Image
             src="https://images.unsplash.com/photo-1739907548147-f991baedfd5e?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
             alt={`${user.username}'s profile picture`}
             className={styles.avatar}
