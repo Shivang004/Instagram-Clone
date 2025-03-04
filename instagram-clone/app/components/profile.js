@@ -1,7 +1,7 @@
 'use client';
 
 import { useState, useEffect } from 'react';
-import styles from './Profile.module.css';
+import styles from './profile.module.css';
 import { usePostsStore } from '../../lib/store/postsStore'; // Update this path
 
 const Profile = ({ userData }) => {
