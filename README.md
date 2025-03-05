@@ -69,8 +69,8 @@ This is a full-stack Instagram clone web application built using Next.js, React,
 
 1. Clone the repository:
 ```bash
-git clone https://github.com/Shivang004/Instagram-Clone/instagram-clone.git
-cd instagram-clone
+git clone https://github.com/Shivang004/Instagram-Clone.git
+cd Instagram-Clone/instagram-clone
 ```
 
 2. Install dependencies:
