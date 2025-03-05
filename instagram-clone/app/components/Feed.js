@@ -4,7 +4,6 @@ import { useState, useEffect } from 'react';
 import { usePostsStore } from '../../lib/store/postsStore';
 import Post from './Post';
 import styles from './Feed.module.css';
-import Image from 'next/image'
 
 const Feed = ({ isLoading = true }) => {
   const posts = usePostsStore(state => state.posts);
@@ -192,7 +191,7 @@ const Feed = ({ isLoading = true }) => {
             </button>
 
             <div className={styles.modalImageContainer} style={{ position: 'relative' }}>
-              <Image
+              <img
                 src={selectedPost.imageUrl}
                 alt={selectedPost.caption || "Instagram post"}
                 className={styles.modalImage}

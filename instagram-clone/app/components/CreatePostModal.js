@@ -1,7 +1,6 @@
 'use client';
 
 import { useState, useRef, useEffect } from 'react';
-import Image from 'next/image';
 import { usePostsStore } from '../../lib/store/postsStore';
 import ReactCrop from 'react-image-crop';
 import 'react-image-crop/dist/ReactCrop.css';
@@ -743,7 +742,7 @@ const CreatePostModal = ({ onClose }) => {
                 circularCrop={false}
                 keepSelection={true}
               >
-                <Image
+                <img
                   ref={imgRef}
                   src={imageUrl}
                   alt="Crop preview"
@@ -787,7 +786,7 @@ const CreatePostModal = ({ onClose }) => {
       return (
         <div className={styles.previewContent}>
           <div className={styles.imagePreview}>
-            <Image
+            <img
               src={croppedImageUrl || imageUrl}
               alt="Preview"
               className={styles.previewImage}
@@ -817,7 +816,7 @@ const CreatePostModal = ({ onClose }) => {
       return (
         <div className={styles.captionContent}>
           <div className={styles.imagePreview}>
-            <Image
+            <img
               src={croppedImageUrl || imageUrl}
               alt="Preview"
               style={{ maxWidth: '100%', maxHeight: '50vh', objectFit: 'contain' }}
