@@ -102,4 +102,3 @@ The project is deployed on Vercel and can be accessed at: [https://instagram-clo
 The application supports:
 - Desktop Web View (standard browser)
 - Mobile Web View (smaller screen optimization)
-- 
