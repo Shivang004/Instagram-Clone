@@ -20,6 +20,10 @@ This is a full-stack Instagram clone web application built using Next.js, React,
 ### Mobile Preview
 ![Mobile Preview](mobile_preview.jpg)
 
+## Deployment
+
+The project is deployed on Vercel and can be accessed at: [https://instagram-clone-sbfe.vercel.app/](https://instagram-clone-sbfe.vercel.app/)
+
 ## Features
 
 ### Feed Page
@@ -100,10 +104,6 @@ yarn dev
 ## Environment Variables
 
 No specific environment variables are required for local setup.
-
-## Deployment
-
-The project is deployed on Vercel and can be accessed at: [https://instagram-clone-sbfe.vercel.app/](https://instagram-clone-sbfe.vercel.app/)
 
 ## Responsive Design
 
