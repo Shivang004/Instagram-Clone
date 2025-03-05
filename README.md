@@ -12,8 +12,13 @@ This is a full-stack Instagram clone web application built using Next.js, React,
 - **Image Handling**: react-image-crop
 - **Language**: TypeScript
 
-## Desktop Preview
+## Demo
+
+### Desktop Preview
 ![Preview](preview.png)
+
+### Mobile Preview
+![Mobile Preview](mobile_preview.jpg)
 
 ## Features
 
