@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useEffect } from 'react'; // Removed useRef
+import { useState, useEffect } from 'react'; 
 import { usePostsStore } from '../../lib/store/postsStore';
 import Post from './Post';
 import styles from './Feed.module.css';
@@ -32,7 +32,7 @@ const Feed = ({ isLoading = true }) => {
     }
 
     // Handle the popstate event (when back button is pressed)
-    const handlePopState = () => { // Removed unused 'event' parameter
+    const handlePopState = () => { 
       if (selectedPost) {
         setSelectedPost(null);
       }

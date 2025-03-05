@@ -1,6 +1,5 @@
 'use client';
 
-// Removed unused useState and useEffect
 import { usePostsStore } from '../../lib/store/postsStore';
 import styles from './profile.module.css';
 import Image from 'next/image'
