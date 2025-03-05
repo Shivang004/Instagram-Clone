@@ -13,7 +13,7 @@ This is a full-stack Instagram clone web application built using Next.js, React,
 - **Language**: TypeScript
 
 ## Desktop Preview
-![Preview](preview.jpg)
+![Preview](preview.png)
 
 ## Features
 
